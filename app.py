@@ -11,10 +11,15 @@ import streamlit as st
 import pandas as pd
 import pickle
 import matplotlib.pyplot as plt
+import os
 
-# Load model and scaler
-model = pickle.load(open('kmeans_model.pkl', 'rb'))
-scaler = pickle.load(open('scaler.pkl', 'rb'))
+BASE_DIR = os.path.dirname(__file__)
+model_path = os.path.join(BASE_DIR, 'kmeans_model.pkl')
+scaler_path = os.path.join(BASE_DIR, 'scaler.pkl')
+
+model = pickle.load(open(model_path, 'rb'))
+scaler = pickle.load(open(scaler_path, 'rb'))
+
 
 st.title("Customer Segmentation App")
 
